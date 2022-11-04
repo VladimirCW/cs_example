@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="4.5.1" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="107.0.5304.6200" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Selenium.WebDriver" />
+    <None Remove="Selenium.WebDriver.ChromeDriver" />
+    <None Remove="PO\" />
+    <None Remove="tests\" />
+    <None Remove="components\" />
+    <None Remove="dotenv.net" />
+    <None Remove="DotNetEnv" />
+    <None Remove="helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PO\" />
+    <Folder Include="tests\" />
+    <Folder Include="components\" />
+    <Folder Include="helpers\" />
+  </ItemGroup>
+</Project>
