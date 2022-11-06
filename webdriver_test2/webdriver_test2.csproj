@@ -23,11 +23,13 @@
     <None Remove="dotenv.net" />
     <None Remove="DotNetEnv" />
     <None Remove="helpers\" />
+    <None Remove="selenoid\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="PO\" />
     <Folder Include="tests\" />
     <Folder Include="components\" />
     <Folder Include="helpers\" />
+    <Folder Include="selenoid\" />
   </ItemGroup>
 </Project>

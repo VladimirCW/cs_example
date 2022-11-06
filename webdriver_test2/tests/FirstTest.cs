@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -8,7 +9,7 @@ using webdriver_test2.PO;
 
 namespace webdriver_test2
 {
-    public class Tests : TestBaseSetup
+    public class FirstTest : TestBaseSetup
     {
         HomePage homePage;
         LoginPage loginPage;
@@ -22,6 +23,7 @@ namespace webdriver_test2
 
 
         [Test]
+        [TestCase(TestName = "First Test", Description = "This test uses a simple input value")]
         public void Test1()
         {
             homePage.open();

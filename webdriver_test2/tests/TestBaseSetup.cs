@@ -5,6 +5,10 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 using webdriver_test2.helpers;
 using System.IO;
+using OpenQA.Selenium.Interactions;
+using System.Collections.Generic;
+using System.Threading;
+[assembly:Parallelizable(ParallelScope.Fixtures)]
 
 namespace webdriver_test2
 {
@@ -23,12 +27,29 @@ namespace webdriver_test2
             DotEnvHelper.Load(dotenv);
             
             ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.AddAdditionalOption("selenoid:options", new Dictionary<string, object>
+            {
+                /* How to add test badge */
+                ["name"] = NUnit.Framework.TestContext.CurrentContext.Test.Name,
+                ["description"] = "AAA BBB",
+
+                /* How to set session timeout */
+                ["sessionTimeout"] = "15m",
+                /* How to add "trash" button */
+                ["labels"] = new Dictionary<string, object>
+                {
+                    ["manual"] = "true"
+                },
+                ["enableVnc"] = true
+            });
             driver = new RemoteWebDriver(new Uri(Environment.GetEnvironmentVariable("grid_url")), chromeOptions);
+            driver.Manage().Window.Maximize();
         }
 
         [TearDown]
         public void BaseTearDown()
         {
+            Thread.Sleep(30000);
             driver.Quit();
         }
     }
