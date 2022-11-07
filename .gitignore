@@ -1,4 +1,6 @@
 .env
+allure-results
+allure-report
 
 # globs
 Makefile.in
